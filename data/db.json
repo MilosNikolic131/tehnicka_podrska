@@ -1,0 +1,28 @@
+{
+  "radnici": [
+    {
+      "imePrezime": "Milos Nikolic",
+      "DatumZaposlenja": "26.02.2022",
+      "JMBG": "123456789111",
+      "id": 1
+    },
+    {
+      "imePrezime": "Dusan Nikolic",
+      "DatumZaposlenja": "15.03.2022",
+      "JMBG": "293959503921",
+      "id": 2
+    },
+    {
+      "imePrezime": "Aleksandar Karadjordjevi",
+      "Datum": "02.02.1999",
+      "JMBG": "92929292",
+      "id": 4
+    },
+    {
+      "imePrezime": "danil medvedev",
+      "Datum": "30.01.2022",
+      "JMBG": "29292929",
+      "id": 5
+    }
+  ]
+}
