@@ -3,10 +3,11 @@ import Pocetna from './components/Pocetna';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Osoblje from './components/Osoblje';
 import RadniciDetails from './components/RadniciDetails';
+import Zalbe from './components/zalbe';
 
 function App() {
   const title = "Interni sajt za tehnicku podrsku";
-
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
   return (
     <Router>
       <div ClassName="App">
@@ -19,6 +20,9 @@ function App() {
             </Route>
             <Route exact path="/osoblje">
               <Osoblje></Osoblje>
+            </Route>
+            <Route exact path="/zalbe">
+              <Zalbe></Zalbe>
             </Route>
             <Route path="/osoblje/:id">
               <RadniciDetails></RadniciDetails>

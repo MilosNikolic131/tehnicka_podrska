@@ -62,4 +62,5 @@ export const TabelaOsoblja = (props) => {
         </tbody>
     </table>
     )
-};
+}
+export default TabelaOsoblja;

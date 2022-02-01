@@ -104,3 +104,33 @@
   background-color: #e67e08;
   color: white;
 }
+.zalbe {
+  max-width: 400px;
+  margin: 0 auto;
+  text-align: center;
+}
+.zalbe label {
+  text-align: left;
+  display: block;
+}
+.zalbe h2 {
+  font-size: 20px;
+  color: #e67e08;
+  margin-bottom: 30px;
+}
+.zalbe input, .zalbe textarea, .zalbe select {
+  width: 100%;
+  padding: 6px 10px;
+  margin: 10px 0;
+  border: 1px solid #ddd;
+  box-sizing: border-box;
+  display: block;
+}
+.zalbe button {
+  background: #e67e08;
+  color: #fff;
+  border: 0;
+  padding: 8px;
+  border-radius: 8px;
+  cursor: pointer;
+}

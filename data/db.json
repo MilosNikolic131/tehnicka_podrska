@@ -1,28 +1,60 @@
 {
   "radnici": [
     {
-      "imePrezime": "Milos Nikolic",
-      "DatumZaposlenja": "26.02.2022",
-      "JMBG": "123456789111",
-      "id": 1
-    },
-    {
-      "imePrezime": "Dusan Nikolic",
-      "DatumZaposlenja": "15.03.2022",
-      "JMBG": "293959503921",
+      "imePrezime": "Petar Petrovic",
+      "DatumZaposlenja": "21.05.2007",
+      "JMBG": "123907891011",
       "id": 2
     },
     {
-      "imePrezime": "Aleksandar Karadjordjevi",
-      "Datum": "02.02.1999",
-      "JMBG": "92929292",
+      "imePrezime": "Ana Anic",
+      "DatumZaposlenja": "12.07.2019",
+      "JMBG": "12345678910777",
+      "id": 3
+    }
+  ],
+  "zalbe": [
+    {
+      "tipProblema": "CTD",
+      "status": "neresen",
+      "opis": "aplikacija se kresuje pri pokretanju",
+      "id_radnika": 1,
+      "id": 1
+    },
+    {
+      "tipProblema": "Unos",
+      "status": "resen",
+      "opis": "Aplikacija duplira unos",
+      "id_radnika": 1,
+      "id": 2
+    },
+    {
+      "tipProblema": "Fetch error",
+      "status": "neresen",
+      "opis": "Server ne vraca podatke",
+      "id_radnika": 2,
+      "id": 3
+    },
+    {
+      "tipProblema": "sdds",
+      "status": "dssd",
+      "opis": "dssd",
+      "id_radnika": "dssd",
       "id": 4
     },
     {
-      "imePrezime": "danil medvedev",
-      "Datum": "30.01.2022",
-      "JMBG": "29292929",
+      "tipProblema": "kmsmkdm",
+      "status": "kmsm",
+      "opis": "msmsm",
+      "id_radnika": "msmsm",
       "id": 5
+    },
+    {
+      "tipProblema": "ssms",
+      "status": "mmsmsm",
+      "opis": "smmsms",
+      "id_radnika": "msms",
+      "id": 6
     }
   ]
 }
