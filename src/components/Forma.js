@@ -1,10 +1,14 @@
 import React from "react";
-import { useState,useEffect } from 'react';
+import { useState, useEffect } from 'react';
 
-export const TabelaV2 = (props) => {
+const Forma = (props) => {
+    const [imePrezime, setIme] = useState('');
+    const [DatumZaposlenja, setDatum] = useState('');
+    const [JMBG, setJMBG] = useState('');
 
     const [data, setData] = useState(props.radnici);
     const [error, setError] = useState(null);
+
     const [click, setClick] = useState(false);
 
     const handleDelete = (props) => {
@@ -22,6 +26,27 @@ export const TabelaV2 = (props) => {
         })
     }
 
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        const radnik = { imePrezime, DatumZaposlenja, JMBG };
+
+        fetch('http://localhost:8000/radnici', {
+            method: 'POST',
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(radnik)
+        }).then(() => {
+            Array.from(document.querySelectorAll("input")).forEach(
+                input => (input.value = "")
+            );
+            console.log("novi radnik dodat");
+            if (click) {
+                setClick(false);
+            } else {
+                setClick(true);
+            }
+        });
+    }
+
     useEffect(() => {
         fetch('http://localhost:8000/radnici').then(res => {
             if (!res.ok) {
@@ -36,8 +61,10 @@ export const TabelaV2 = (props) => {
         })
     }, [click]);
 
+
     return (
-        <div className="tabelav2">
+        <div className="forma">
+            <h2>Prikaz naseg osoblja:</h2>
             <table id="table">
                 <thead>
                     <tr>
@@ -63,8 +90,19 @@ export const TabelaV2 = (props) => {
 
                 </tbody>
             </table>
+            <br></br>
+            <h2>Unos novog radnika:</h2>
+            <form onSubmit={handleSubmit}>
+                <label>Ime i prezime:</label>
+                <input type="text" required value={imePrezime} onChange={(e) => setIme(e.target.value)}></input>
+                <label>Datum zaposlenja:</label>
+                <input type="text" required value={DatumZaposlenja} onChange={(e) => setDatum(e.target.value)}></input>
+                <label>JMBG:</label>
+                <input type="text" required value={JMBG} onChange={(e) => setJMBG(e.target.value)}></input>
+                <button>Dodaj radnika</button>
+            </form>
         </div>
     );
-};
+}
 
-export default TabelaV2;
+export default Forma;

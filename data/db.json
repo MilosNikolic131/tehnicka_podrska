@@ -1,60 +1,32 @@
 {
   "radnici": [
     {
-      "imePrezime": "Petar Petrovic",
-      "DatumZaposlenja": "21.05.2007",
-      "JMBG": "123907891011",
+      "imePrezime": "Dusan Nikolic",
+      "DatumZaposlenja": "2.2.2022",
+      "JMBG": "82724003",
       "id": 2
     },
     {
-      "imePrezime": "Ana Anic",
-      "DatumZaposlenja": "12.07.2019",
-      "JMBG": "12345678910777",
+      "imePrezime": "Milos Nikolic",
+      "DatumZaposlenja": "1.2.2022",
+      "JMBG": "9304193",
       "id": 3
     }
   ],
   "zalbe": [
     {
       "tipProblema": "CTD",
-      "status": "neresen",
-      "opis": "aplikacija se kresuje pri pokretanju",
-      "id_radnika": 1,
+      "status": "resen",
+      "opis": "ctd pri pokretanju aplikacije",
+      "id_radnika": "1",
       "id": 1
     },
     {
-      "tipProblema": "Unos",
-      "status": "resen",
-      "opis": "Aplikacija duplira unos",
-      "id_radnika": 1,
-      "id": 2
-    },
-    {
-      "tipProblema": "Fetch error",
+      "tipProblema": "fetch error",
       "status": "neresen",
-      "opis": "Server ne vraca podatke",
-      "id_radnika": 2,
-      "id": 3
-    },
-    {
-      "tipProblema": "sdds",
-      "status": "dssd",
-      "opis": "dssd",
-      "id_radnika": "dssd",
-      "id": 4
-    },
-    {
-      "tipProblema": "kmsmkdm",
-      "status": "kmsm",
-      "opis": "msmsm",
-      "id_radnika": "msmsm",
-      "id": 5
-    },
-    {
-      "tipProblema": "ssms",
-      "status": "mmsmsm",
-      "opis": "smmsms",
-      "id_radnika": "msms",
-      "id": 6
+      "opis": "greska pri fecovanju podataka sa servera",
+      "id_radnika": "2",
+      "id": 2
     }
   ]
 }

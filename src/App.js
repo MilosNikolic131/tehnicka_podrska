@@ -4,8 +4,9 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Osoblje from './components/Osoblje';
 import RadniciDetails from './components/RadniciDetails';
 import Zalbe from './components/zalbe';
+import Footer from './components/footer';
 
-function App() {
+function App() { 
   const title = "Interni sajt za tehnicku podrsku";
   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
   return (
@@ -30,6 +31,7 @@ function App() {
           </Switch>
 
         </div>
+        <Footer></Footer>
       </div>
     </Router>
 

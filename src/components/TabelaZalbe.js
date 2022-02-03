@@ -1,7 +1,25 @@
 import React from "react";
+import { useState, useEffect } from 'react';
 
 export const TabelaZalbe = (props) => {
-    const zalbe = props.zalbe;
+
+    const [click, setClick] = useState(false);
+    const [data, setData] = useState(props.zalbe);
+    const [error, setError] = useState(null);
+
+    useEffect(() => {
+        fetch('http://localhost:8000/zalbe').then(res => {
+            if (!res.ok) {
+                throw Error('Ne moze se fecovati data');
+            }
+            return res.json();
+        }).then(data => {
+            console.log(data);
+            setData(data);
+        }).catch(err => {
+            setError(err.message);
+        })
+    }, [click]);
 
     const handleDelete = (props) => {
         const zalbaId = props;
@@ -10,6 +28,11 @@ export const TabelaZalbe = (props) => {
             method: 'DELETE'
         }).then(() => {
             console.log('OK');
+            if (click) {
+                setClick(false);
+            } else {
+                setClick(true);
+            }
         })
     }
 
@@ -27,8 +50,7 @@ export const TabelaZalbe = (props) => {
                     </tr>
                 </thead>
                 <tbody>
-                    {zalbe.map((zalba) => (
-
+                    {data.map((zalba) => (
                         <tr>
                             <td>{zalba.tipProblema}</td>
                             <td>{zalba.status}</td>
@@ -41,10 +63,10 @@ export const TabelaZalbe = (props) => {
                     ))}
 
                 </tbody>
-                
+
             </table>
         </div>
-        
+
     );
 };
 
