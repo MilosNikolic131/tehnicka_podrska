@@ -85,7 +85,6 @@ const FormaZalbe = (props) => {
                             <td>{zalba.id_radnika}</td>
                             <td>{zalba.id}</td>
                             <td><Button onClick={() => handleDelete(zalba.id)} name="Obrisi"></Button></td>
-                            {/* <td><button onClick={() => handleDelete(zalba.id)}>Obrisi</button></td> */}
                         </tr>
 
                     ))}
@@ -104,7 +103,6 @@ const FormaZalbe = (props) => {
                 <input type="text" required value={opis} onChange={(e) => setOpis(e.target.value)}></input>
                 <label>Id radnika uneo:</label>
                 <input type="text" required value={id_radnika} onChange={(e) => setIdRadnika(e.target.value)}></input>
-                {/* <button>Dodaj zalbu</button> */}
                 <Button name="Dodaj zalbu"></Button>
             </form>
         </div>

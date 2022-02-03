@@ -1,6 +1,6 @@
 import React from "react";
 import { useState, useEffect } from 'react';
-
+import Button from "./Button";
 const Forma = (props) => {
     const [imePrezime, setIme] = useState('');
     const [DatumZaposlenja, setDatum] = useState('');
@@ -83,7 +83,7 @@ const Forma = (props) => {
                             <td>{radnik.DatumZaposlenja}</td>
                             <td>{radnik.JMBG}</td>
                             <td>{radnik.id}</td>
-                            <td><button onClick={() => handleDelete(radnik.id)}>Obrisi</button></td>
+                            <td><Button onClick={() => handleDelete(radnik.id)} name="Obrisi"></Button></td>
                         </tr>
 
                     ))}
@@ -99,7 +99,7 @@ const Forma = (props) => {
                 <input type="text" required value={DatumZaposlenja} onChange={(e) => setDatum(e.target.value)}></input>
                 <label>JMBG:</label>
                 <input type="text" required value={JMBG} onChange={(e) => setJMBG(e.target.value)}></input>
-                <button>Dodaj radnika</button>
+                <Button name="Dodaj radnika"></Button>
             </form>
         </div>
     );

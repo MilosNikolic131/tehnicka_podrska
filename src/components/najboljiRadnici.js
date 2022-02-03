@@ -9,12 +9,6 @@ const NajboljiRadniciList = (props) => {
                 <h4>Poslednji dodat radnik je {last[0].imePrezime}</h4>
                 <p>sa JMBG-om: {last[0].JMBG}</p>
             </div>
-            {/* {radnici.map((radnik) =>(
-                <div className="radnik-preview" key = {radnik.id}>
-                    <h4>{radnik.imePrezime}</h4>
-                    <p>Cestitamo najboljem radniku {radnik.JMBG}</p>
-                    </div>
-            ))} */}
         </div>
     );
 }
