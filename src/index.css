@@ -12,6 +12,7 @@
   max-width: 600px;
   margin: 0 auto;
   border-bottom: 1px solid #f2f2f2;
+  background-color: #f2f2f2;
 }
 .navbar h1 {
   color: #e67e08;
@@ -35,6 +36,7 @@
   max-width: 600px;
   margin: 0 auto;
   border-bottom: 1px solid #f2f2f2;
+  background-color: #f2f2f2;
 }
 .footer h3 {
   color: #e67e08;
@@ -61,6 +63,7 @@
   padding: 10px 16px;
   margin: 20px 0;
   border-bottom: 1px solid #fafafa;
+  background-color: #f2f2f2;
 }
 .radnik-preview:hover {
   box-shadow: 1px 3px 5px rgba(0,0,0,0.1);
@@ -75,6 +78,7 @@
   padding: 10px 16px;
   margin: 20px 0;
   border-bottom: 1px solid #fafafa;
+  background-color: #f2f2f2;
 }
 .zalbe-preview:hover {
   box-shadow: 1px 3px 5px rgba(0,0,0,0.1);
@@ -85,9 +89,14 @@
   margin-bottom: 8px;
 }
 
-.App h1{
+#naslov {
+  color:#e67e08;
   text-align: center;
 }
+
+body {
+  background-image: url("background.jpg");
+ }
 
 .osoblje {
   max-width: 400px;
@@ -123,6 +132,7 @@
   font-family: Arial, Helvetica, sans-serif;
   border-collapse: collapse;
   width: 100%;
+  background-color: #f2f2f2;
 }
 
 #table td, #table th {

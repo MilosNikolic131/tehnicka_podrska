@@ -12,7 +12,7 @@ function App() {
   return (
     <Router>
       <div ClassName="App">
-        <h1>{title}</h1>
+        <h1 id="naslov">{title}</h1>
         <Navbar></Navbar>
         <div className="content">
           <Switch>
