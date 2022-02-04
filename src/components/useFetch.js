@@ -4,8 +4,6 @@ const useFetch = (url) =>{
     const [data, setData] = useState(null);
     const [error,setError] = useState(null);
 
-    
-
     useEffect(() => {
         fetch(url).then(res =>{
             if(!res.ok){

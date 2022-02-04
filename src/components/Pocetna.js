@@ -1,5 +1,5 @@
 
-import useFetch from '../useFetch';
+import useFetch from './useFetch';
 import NajboljiRadniciList from './najboljiRadnici';
 import PoslednjeZalbeList from './poslednjeZalbe';
 

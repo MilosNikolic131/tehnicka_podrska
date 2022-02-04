@@ -11,6 +11,8 @@ const FormaZalbe = (props) => {
     const [opis, setOpis] = useState('');
     const [id_radnika, setIdRadnika] = useState('');
     const [timer, setTimer] = useState(false);
+    const [radniciData, setRadniciData] = useState(null);
+    const [displayError,setDisplayError] = useState(null);
 
     useEffect(() => {
         fetch('http://localhost:8000/zalbe').then(res => {
@@ -26,25 +28,57 @@ const FormaZalbe = (props) => {
         })
     }, [timer]);
 
+    useEffect(() => {
+        fetch('http://localhost:8000/radnici').then(res => {
+            if (!res.ok) {
+                throw Error('Ne moze se fecovati data');
+            }
+            return res.json();
+        }).then(data => {
+            setRadniciData(data);
+            console.log(data);
+        })
+    }, []);
+
+    const validate = (id) => {
+        const radniciList = radniciData;
+       
+        for (let i = 0; i < radniciList.length; i++) {
+            
+            if (id == radniciList[i].id) {
+                return true;
+            }
+        }
+        return false;
+    }
+
     const handleSubmit = (e) => {
         e.preventDefault();
         const zalba = { tipProblema, status, opis, id_radnika };
+        const isValid = validate(zalba.id_radnika);
+      
+        if (isValid) {
+            setDisplayError(null);
 
-        fetch('http://localhost:8000/zalbe', {
-            method: 'POST',
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify(zalba)
-        }).then(() => {
-            Array.from(document.querySelectorAll("input")).forEach(
-                input => (input.value = "")
-            );
-            console.log("nova zalba dodata");
-            if (timer) {
-                setTimer(false);
-            } else {
-                setTimer(true);
-            }
-        });
+            fetch('http://localhost:8000/zalbe', {
+                method: 'POST',
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(zalba)
+            }).then(() => {
+                Array.from(document.querySelectorAll("input")).forEach(
+                    input => (input.value = "")
+                );
+                console.log("nova zalba dodata");
+                if (timer) {
+                    setTimer(false);
+                } else {
+                    setTimer(true);
+                }
+            });
+        } else {
+           setDisplayError("Radnik sa datim id-ijem ne postoji!");
+        }
+
     }
 
     const handleDelete = (props) => {
@@ -64,6 +98,7 @@ const FormaZalbe = (props) => {
 
     return (
         <div className="formazalbe">
+            {error && <div>{error}</div>}
             <h2>Prikaz zalbi:</h2>
             <table id="table">
                 <thead>
@@ -94,6 +129,7 @@ const FormaZalbe = (props) => {
             </table>
             <br></br>
             <h2>Unos nove zalbe:</h2>
+            {displayError && <p id="displayErr">{displayError}</p>}
             <form onSubmit={handleSubmit}>
                 <label>Tip problema:</label>
                 <input type="text" required value={tipProblema} onChange={(e) => setTipProblema(e.target.value)}></input>

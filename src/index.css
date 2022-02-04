@@ -181,3 +181,6 @@ body {
   border-radius: 8px;
   cursor: pointer;
 }
+#displayErr{
+  color:#a70707;
+}

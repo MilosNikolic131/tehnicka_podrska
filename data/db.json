@@ -14,8 +14,8 @@
     },
     {
       "imePrezime": "Petar Petrovic",
-      "DatumZaposlenja": "12.2.2021",
-      "JMBG": "9292402",
+      "DatumZaposlenja": "12.2.2022",
+      "JMBG": "1234567891011",
       "id": 4
     }
   ],
@@ -33,6 +33,13 @@
       "opis": "greska pri fecovanju podataka sa servera",
       "id_radnika": "2",
       "id": 2
+    },
+    {
+      "tipProblema": "error 404",
+      "status": "neresen",
+      "opis": "test",
+      "id_radnika": "2",
+      "id": 3
     }
   ]
 }

@@ -11,6 +11,8 @@ const Forma = (props) => {
 
     const [click, setClick] = useState(false);
 
+    const [displayError, setDisplayError] = useState(null);
+
     const handleDelete = (props) => {
         const radnikID = props;
 
@@ -26,25 +28,40 @@ const Forma = (props) => {
         })
     }
 
+    const validate = (JMBG) => {
+        if (JMBG.length != 13) {
+            return false;
+        } else {
+            return true;
+        }
+    }
+
     const handleSubmit = (e) => {
         e.preventDefault();
         const radnik = { imePrezime, DatumZaposlenja, JMBG };
+        const isValid = validate(radnik.JMBG);
+        if (isValid) {
+            setDisplayError(null);
 
-        fetch('http://localhost:8000/radnici', {
-            method: 'POST',
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify(radnik)
-        }).then(() => {
-            Array.from(document.querySelectorAll("input")).forEach(
-                input => (input.value = "")
-            );
-            console.log("novi radnik dodat");
-            if (click) {
-                setClick(false);
-            } else {
-                setClick(true);
-            }
-        });
+            fetch('http://localhost:8000/radnici', {
+                method: 'POST',
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(radnik)
+            }).then(() => {
+                Array.from(document.querySelectorAll("input")).forEach(
+                    input => (input.value = "")
+                );
+                console.log("novi radnik dodat");
+                if (click) {
+                    setClick(false);
+                } else {
+                    setClick(true);
+                }
+            });
+        } else {
+            setDisplayError("JMBG mora imati 13 cifara!");
+        }
+
     }
 
     useEffect(() => {
@@ -64,6 +81,7 @@ const Forma = (props) => {
 
     return (
         <div className="forma">
+            {error && <div>{error}</div>}
             <h2>Prikaz naseg osoblja:</h2>
             <table id="table">
                 <thead>
@@ -92,6 +110,7 @@ const Forma = (props) => {
             </table>
             <br></br>
             <h2>Unos novog radnika:</h2>
+            {displayError && <p id="displayErr">{displayError}</p>}
             <form onSubmit={handleSubmit}>
                 <label>Ime i prezime:</label>
                 <input type="text" required value={imePrezime} onChange={(e) => setIme(e.target.value)}></input>
